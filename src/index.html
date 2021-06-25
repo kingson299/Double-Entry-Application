@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <title>Hello, world!</title>
+  </head>
+  
+  <body  class="container">
+    <h1>The Double Entry</h1>
+    <hr/>
+    <button class="btn btn-primary btn-info p-3" type="button" value="Add" onclick="add()">Add</button>
+    <button class="btn btn-primar btn-info p-3" type="button" value="Reset" onclick="sumAllAndReset(this)">Reset</button>
+    <button class="btn btn-primary btn-info p-3" type="submit" value="Submit" onclick="entry()">Submit</button>
+    <hr/>
+    Date
+    <input id="entryDate" type="date" class="form-control rounded-0 w-25" placeholder="Date" name="Date">
+    <br>
+    <div class="row">
+      <div class="col-3">
+        <h3>Dr.</h3>
+      </div>
+      <div class="col-2" style="text-align:center;">
+        <h3>$</h3>
+      </div>
+      <div class="col-3">
+        <h3>Cr.</h3>
+      </div>
+      <div class="col-2" style="text-align:center;">
+        <h3>$</h3>
+      </div>
+    </div>
+
+    
+    <li class="itemRows row d-none" id="exampleRow">
+      <div class="col-3 pe-0">
+        <form autocomplete="off" >
+          <div class="autocomplete" >
+            <input type="text" class="form-control rounded-0 acctItem drItem drSide" placeholder="Item" name="drItem">
+          </div>
+        </form>
+      </div>
+      <div class="col-2 ps-0">
+
+        <input type="text" class="form-control rounded-0 dr-item-amount crSide" placeholder="$" style="text-align:right;" aria-label="Last name" onchange="sumAll('dr')" onblur="numFormat(this)">
+      </div>
+      <div class="col-3 pe-0">
+
+        <form autocomplete="off" >
+          <div class="autocomplete" >
+            <input type="text" class="form-control rounded-0 acctItem crItem drSide" placeholder="Item" name="crItem">
+          </div>
+        </form>
+      </div>
+      <div class="col-2 ps-0">
+
+        <input type="text" class="form-control rounded-0 cr-item-amount crSide" placeholder="$" style="text-align:right;" aria-label="Last name" onchange="sumAll('cr')" onblur="numFormat(this)">
+      </div>
+      <div class="col-2 ps-0">
+        <button type="button" class="btn btn-secondary mb-1"  onClick="sumAllAndDeleteRow(this)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
+          <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
+          </svg>
+          Delete
+        </button>
+      </div>
+    </li>
+
+    <ol id="entriesForm" class="p-lg-0">
+      <li class="itemRows row ">
+        <div class="col-3 pe-0">
+          <form autocomplete="off" >
+            <div class="autocomplete" >
+              <input type="text" class="form-control rounded-0 acctItem drItem drSide" placeholder="Item" name="drItem">
+            </div>
+          </form>
+              
+
+        </div>
+        <div class="col-2 ps-0">
+
+          <input type="text" class="form-control rounded-0 dr-item-amount drSide" style="text-align:right;" placeholder="$" aria-label="Last name" onchange="sumAll('dr')" onblur="numFormat(this)">
+        </div>
+        <div class="col-3 pe-0">
+
+          <form autocomplete="off" >
+            <div class="autocomplete" >
+              <input type="text" class="form-control rounded-0 acctItem crItem crSide" placeholder="Item" name="crItem">
+            </div>
+          </form>
+        </div>
+        <div class="col-2 ps-0">
+
+          <input type="text" class="form-control rounded-0 cr-item-amount crSide" style="text-align:right;" placeholder="$" aria-label="Last name" onchange="sumAll('cr')" onblur="numFormat(this)">
+        </div>
+        <div class="col-2 ps-0">
+          <button type="button" class="btn btn-secondary mb-1" onClick="sumAllAndDeleteRow(this)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
+            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
+            </svg>
+            Delete
+          </button>
+        </div>
+      </li>
+    </ol>
+
+    <div class="Counter row">
+      <div class="col-3 pe-0">
+
+        <input type="text" class="form-control rounded-0 d-none"  aria-label="First name">
+      </div>
+      <div class="col-2 ps-0">
+
+        <input readonly type="text" class="form-control rounded-0 dr-entry-total" style="text-align:right;" placeholder="$" aria-label="Last name">
+      </div>
+      <div class="col-3 pe-0">
+
+        <input type="text" class="form-control rounded-0 d-none"  aria-label="Last name">
+      </div>
+      <div class="col-2 ps-0">
+
+        <input readonly type="text" class="form-control rounded-0 cr-entry-total" style="text-align:right;" placeholder="$" aria-label="Last name">
+      </div>
+
+    </div>
+ 
+    <div class="Seperate">
+      <br></br>
+
+      <div class="row">
+        <hr></hr>
+      </div>
+  
+      <br></br>
+    </div>
+
+    <div class="table-responsive-xl">
+    <table  class=" table table-sm table-white table-hover">
+      <thead>
+        <tr>
+          <th scope="col" class="col-md-1">Date</th>
+          <th scope="col" class="col-md-5">Description</th>
+          <th scope="col" class="col-md-2">Dr.</th>
+          <th scope="col" class="col-md-2">Cr.</th>
+        </tr>
+      </thead>
+      <tbody id="dbentryTable">
+        <tr>
+        <th scope="col" class="col-md-1"></th>
+        <th scope="col" class="col-md-5">Total</th>
+        <td scope="col" id="journal-dr-total" class="col-md-2"></td>
+        <td scope="col" id="journal-cr-total"  class="col-md-2"></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+
+  </body>
+</html>
+<script>
+  function add() {
+    let clone = document.querySelector('#exampleRow').cloneNode( true );
+    clone.setAttribute( 'class', "itemRows row " );
+    
+    var list = document.getElementById('entriesForm');
+    list.appendChild(clone);
+    autocompleteAcctItem();
+  }
+
+  function reset() {
+    let entriesform = document.getElementById('entriesForm');
+    while (entriesform.firstChild) {
+      entriesform.removeChild(entriesform.firstChild);
+    }
+    add();
+  }
+
+  function delete_row(e) {
+    e.parentNode.parentNode.parentNode.removeChild(e.parentNode.parentNode);
+    autocompleteAcctItem();
+  }
+
+  function sumAll(side) {
+    var items = document.getElementsByClassName(side +"-item-amount");
+    var sums = 0;
+
+    for (const item of items) {
+      let num = Number(item.value);
+      if(isNaN(num))
+      {
+        alert("Please input numbers only in $ field.");
+        let total = document.querySelector('.' + side + '-entry-total');
+        sums = total.value;
+        break;
+      }
+      sums = sums + num;
+    }
+
+    let total = document.querySelector('.' + side + '-entry-total');
+    total.value = formatValue(String(sums));
+    return sums;
+  }
+
+  function sumAllJourney() {
+    var AlldrItemsAmount = document.getElementsByClassName("journalAmount-dr");
+    var AllcrItemsAmount = document.getElementsByClassName("journalAmount-cr");
+    var drSums = 0;
+    var crSums = 0;
+
+    console.log(AlldrItemsAmount);
+
+    for (const item of AlldrItemsAmount) {
+      let num = Number(item.textContent);
+      
+      drSums = drSums + num;
+    }
+    let totaldr = document.getElementById('journal-dr-total');
+    totaldr.innerHTML = formatValue(String(drSums));
+    
+
+    for (const item of AllcrItemsAmount) {
+      let num = Number(item.textContent);
+      crSums = crSums + num;
+    }
+    let totalcr = document.getElementById('journal-cr-total');
+    totalcr.innerHTML = formatValue(String(crSums));
+
+  }
+
+
+  function sumAllAndDeleteRow(e){
+    delete_row(e);
+    sumAll('dr');
+    sumAll('cr');
+  }
+
+  function sumAllAndReset(e){
+    reset();
+    sumAll('dr');
+    sumAll('cr');
+  }
+
+  function entry(){
+    var date = document.getElementById('entryDate').value;
+    var entriesForm = document.getElementById('entriesForm');
+    var dbentryTable = document.getElementById('dbentryTable');
+
+    var drItems = entriesForm.getElementsByClassName('drItem');
+    var drItemAmounts = entriesForm.getElementsByClassName('dr-item-amount');
+    var crItems = entriesForm.getElementsByClassName('crItem');
+    var crItemAmounts = entriesForm.getElementsByClassName('cr-item-amount');
+    var drtotal =  sumAll('dr');
+    var crtotal =  sumAll('cr');
+
+    if( drtotal == crtotal ){
+      for (let i = 0; i < crItems.length; i++) {
+            writeEntry(dbentryTable, date, crItems[i].value, "", crItemAmounts[i].value);
+      }
+      for (let i = 0; i < drItems.length; i++) {
+            writeEntry(dbentryTable, date, drItems[i].value, drItemAmounts[i].value, "");
+      }
+      
+      sumAllJourney();
+      
+
+    }else{
+      alert("Dr and Cr does not tide. Please ensure both Dr. and Cr. are equal before submitting the journal entries.");
+
+    }
+    
+
+
+  }
+
+  function writeEntry(table, date, description, dr, cr){
+    let row = table.insertRow(0);
+    let cellDate = row.insertCell(-1);
+    let cellDesc = row.insertCell(-1);
+    let cellDr = row.insertCell(-1);
+    let cellCr = row.insertCell(-1);
+
+    cellDate.innerHTML = date;
+    cellDesc.innerHTML = description;
+    cellDr.innerHTML = dr;
+    cellCr.innerHTML = cr;
+    if(dr=="" && cr!=""){
+      cellCr.classList.add("journalAmount-cr");
+      cellDesc.setAttribute("style", "padding-left: 50px;");
+    }else if(dr!="" && cr==""){
+      cellDr.classList.add("journalAmount-dr");
+    }
+    
+    
+    
+  }
+
+
+
+  function numFormat(e){    
+    //set the numeric value to a number input
+    e.value = formatValue(e.value);
+  }
+  function formatValue(value){    
+    //number-format the user input
+    formatted_value = parseFloat(value.replace(/,/g, ""))
+                  .toFixed(2)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    //set the numeric value to a number input
+    return formatted_value.replace(/,/g, "");
+}
+
+  function autocompleteAcctItem(){
+    var acctItems = ['Cash And Financial Assets (Dr)',
+                      'Cash and Cash Equivalents (Dr)',
+                      'Financial Assets (Investments) (Dr)',
+                      'Restricted Cash and Financial Assets (Dr)',
+                      'Additional Financial Assets and Investments (Dr)',
+                      'Receivables And Contracts (Dr)',
+                      'Accounts, Notes And Loans Receivable (Dr)',
+                      'Contracts (Dr)',
+                      'Nontrade And Other Receivables (Dr)',
+                      'Inventory (Dr)',
+                      'Merchandise (Dr)',
+                      'Raw Material, Parts And Supplies (Dr)',
+                      'Work In Process (Dr)',
+                      'Finished Goods (Dr)',
+                      'Other Inventory (Dr)',
+                      'Accruals And Additional Assets (Dr)',
+                      'Prepaid Expense (Dr)',
+                      'Accrued Income (Dr)',
+                      'Additional Assets (Dr)',
+                      'Property, Plant And Equipment (Dr)',
+                      'Land And Land Improvements (Dr)',
+                      'Buildings, Structures And Improvements (Dr)',
+                      'Machinery And Equipment (Dr)',
+                      'Furniture And Fixtures (Dr)',
+                      'Other Property, Plant And Equipment (Dr)',
+                      'Construction In Progress (Dr)',
+                      'Property, Plant And Equipment Accumulated Depreciation And Depletion (Cr)',
+                      'Accumulated Depletion (Cr)',
+                      'Accumulated Depreciation (Cr)',
+                      'Intangible Assets (Excluding Goodwill) (Dr)',
+                      'Intellectual Property (Dr)',
+                      'Computer Software (Dr)',
+                      'Trade And Distribution Assets (Dr)',
+                      'Contracts And Rights (Dr)',
+                      'Right To Use Assets (Classified By Type) (Dr)',
+                      'Other Intangible Assets (Dr)',
+                      'Acquisition In Progress (Dr)',
+                      'Intangible Assets Accumulated Amortization (Cr)',
+                      'Goodwill (Dr)',
+                      'Payables (Cr)',
+                      'Trade Payables (Cr)',
+                      'Dividends Payable (Cr)',
+                      'Interest Payable (Cr)',
+                      'Other Payables (Cr)',
+                      'Accruals And Other Liabilities (Cr)',
+                      'Accrued Expenses (Including Payroll) (Cr)',
+                      'Deferred Income (Unearned Revenue) (Cr)',
+                      'Accrued Taxes (Other Than Payroll) (Cr)',
+                      'Other (Non-Financial) Liabilities (Cr)',
+                      'Financial Liabilities (Cr)',
+                      'Notes Payable (Cr)',
+                      'Loans Payable (Cr)',
+                      'Bonds (Debentures) (Cr)',
+                      'Other Debts And Borrowings (Cr)',
+                      'Lease Obligations (Cr)',
+                      'Derivative Financial Liabilities (Cr)',
+                      'Other Financial Liabilities (Cr)',
+                      'Provisions (Contingencies) (Cr)',
+                      'Customer Related Provisions (Cr)',
+                      'Ligation And Regulatory Provisions (Cr)',
+                      'Other Provisions (Cr)',
+                      'Owners Equity (Attributable To Owners Of Parent) (Cr)',
+                      'Equity At par (Issued Capital) (Cr)',
+                      'Additional Paid-in Capital (Cr)',
+                      'Retained Earnings (Dr / Cr)',
+                      'Appropriated (Cr)',
+                      'Unappropriated (Cr)',
+                      'Deficit (Dr)',
+                      'In Suspense Zero',
+                      'Accumulated OCI (Dr / Cr)',
+                      'Exchange Differences On Translation (Dr / Cr)',
+                      'Cash Flow Hedges (Dr / Cr)',
+                      'Gains And Losses On Remeasuring Available-For-Sale Investments (Dr / Cr)',
+                      'Remeasurements Of Defined Benefit Plans (Dr / Cr)',
+                      'Revaluation Surplus (IFRS only) (Cr)',
+                      'Other Equity Items (Dr / Cr)',
+                      'ESOP Related Items (Dr / Cr)',
+                      'Subscribed Stock Receivables (Dr)',
+                      'Treasury Stock (Not Extinguished) (Dr)',
+                      'Miscellaneous Equity (Cr)',
+                      'Noncontrolling (Minority) Interest (Cr)',
+                      'Revenue (Cr)',
+                      'Recognized Point Of Time (Cr)',
+                      'Goods (Cr)',
+                      'Services Revenue (Cr)',
+                      'Recognized Over Time (Cr)',
+                      'Products (Cr)',
+                      'Adjustments (Dr)',
+                      'Variable Consideration (Dr)',
+                      'Consideration Paid (Payable) To Customers (Dr)',
+                      'Other Adjustments (Dr)',
+                      'Expenses (Dr)',
+                      'Expenses Classified By Nature (Dr)',
+                      'Merchandise, Material, Parts And Supplies (Dr)',
+                      'Employee Benefits (Dr)',
+                      'Services Expenses (Dr)',
+                      'Rent, Depreciation, Amortization And Depletion (Dr)',
+                      'Increase In Inventories Of Finished Goods And Work In Progress Dr',
+                      'Decrease In Inventories Of Finished Goods And Work In Progress Cr',
+                      'Other Work Performed By Entity And Capitalized (Cr)',
+                      'Expenses Classified By Function (Dr)',
+                      'Cost Of Sales (Dr)',
+                      'Selling, General And Administrative (Dr)',
+                      'Credit Loss On Receivables (Dr)',
+                      'Credit Loss Reversal On Receivables (Cr)',
+                      'Other (Non-Operating) Expenses (Dr)',
+                      'Other (Non-Operating) Income (Cr)',
+                      'Other Revenue (Cr)',
+                      'Other Expenses (Dr)',
+                      'Gains (Cr)',
+                      'Losses (Dr)',
+                      'Foreign Currency Transaction Gain (Cr)',
+                      'Foreign Currency Transaction Loss (Dr)',
+                      'Gain On Investments (Cr)',
+                      'Loss On Investments (Dr)',
+                      'Gain On Derivatives (Cr)',
+                      ' Loss On Derivatives (Dr)',
+                      'Gain On Disposal Of Assets (Cr)',
+                      'Loss On Disposal Of Assets (Dr)',
+                      'Debt Related Gain (Cr)',
+                      'Debt Related Loss (Dr)',
+                      'Impairment Loss (Dr)',
+                      'Other Gains (Cr)',
+                      'Other Losses (Dr)',
+                      'Taxes (Other Than Income And Payroll) And Fees (Dr)',
+                      'Real Estate Taxes And Insurance (Dr)',
+                      'Highway (Road) Taxes And Tolls (Dr)',
+                      'Direct Tax And License Fees (Dr)',
+                      'Excise And Sales Taxes (Dr)',
+                      'Customs Fees And Duties (Not Classified As Sales Or Excise) (Dr)',
+                      'Non-Deductible VAT (GST) (Dr)',
+                      'General Insurance Expense (Dr)',
+                      'Administrative Fees (Revenue Stamps) (Dr)',
+                      'Fines And Penalties (Dr)',
+                      ' Miscellaneous Taxes (Dr)',
+                      ' Other Taxes And Fees (Dr)',
+                      'Income Tax Expense (Dr)',
+                      'Income Tax Benefit (Cr)',
+                      'Intercompany And Related Party Accounts (Dr / Cr)',
+                      'Intercompany And Related Party Assets (Dr)',
+                      'Intercompany Balances (Eliminated In Consolidation) (Dr)',
+                      'Related Party Balances (Reported Or Disclosed) (Dr)',
+                      'Intercompany Investments (Dr)',
+                      'Intercompany And Related Party Liabilities (Cr)',
+                      'Intercompany Balances (Eliminated In Consolidation) (Cr)',
+                      'Related Party Balances (Reported Or Disclosed) (Cr)',
+                      'Intercompany And Related Party Expense (Dr)',
+                      'Intercompany And Related Party Income (Cr)',
+                      'Intercompany And Related Party Income (Cr)',
+                      'Intercompany And Related Party Expenses (Dr)',
+                      'Income (Loss) From Equity Method Investments (Dr)']; 
+    for (const item of document.getElementsByClassName("acctItem")) {
+      autocomplete(item, acctItems);
+    }
+  }
+  autocompleteAcctItem();
+
+ 
+  
+  
+</script>

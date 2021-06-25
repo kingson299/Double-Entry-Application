@@ -1,0 +1,152 @@
+id,Item,Dr,Cr
+1.1.0,Cash And Financial Assets (Dr),1,0
+1.1.1,Cash and Cash Equivalents (Dr),1,0
+1.1.2,Financial Assets (Investments) (Dr),1,0
+1.1.3,Restricted Cash and Financial Assets (Dr),1,0
+1.1.4,Additional Financial Assets and Investments (Dr),1,0
+1.2.0,Receivables And Contracts (Dr),1,0
+1.2.1,"Accounts, Notes And Loans Receivable (Dr)",1,0
+1.2.2,Contracts (Dr),1,0
+1.2.3,Nontrade And Other Receivables (Dr),1,0
+1.3.0,Inventory (Dr),1,0
+1.3.1,Merchandise (Dr),1,0
+1.3.2,"Raw Material, Parts And Supplies (Dr)",1,0
+1.3.3,Work In Process (Dr),1,0
+1.3.4,Finished Goods (Dr),1,0
+1.3.5,Other Inventory (Dr),1,0
+1.4.0,Accruals And Additional Assets (Dr),1,0
+1.4.1,Prepaid Expense (Dr),1,0
+1.4.2,Accrued Income (Dr),1,0
+1.4.3,Additional Assets (Dr),1,0
+1.5.0,"Property, Plant And Equipment (Dr)",1,0
+1.5.1,Land And Land Improvements (Dr),1,0
+1.5.2,"Buildings, Structures And Improvements (Dr)",1,0
+1.5.3,Machinery And Equipment (Dr),1,0
+1.5.4,Furniture And Fixtures (Dr),1,0
+1.5.5,"Other Property, Plant And Equipment (Dr)",1,0
+1.5.6,Construction In Progress (Dr),1,0
+1.6.0,"Property, Plant And Equipment Accumulated Depreciation And Depletion (Cr)",0,1
+1.6.1,Accumulated Depletion (Cr),0,1
+1.6.2,Accumulated Depreciation (Cr),0,1
+1.7.0,Intangible Assets (Excluding Goodwill) (Dr),1,0
+1.7.1,Intellectual Property (Dr),1,0
+1.7.2,Computer Software (Dr),1,0
+1.7.3,Trade And Distribution Assets (Dr),1,0
+1.7.4,Contracts And Rights (Dr),1,0
+1.7.5,Right To Use Assets (Classified By Type) (Dr),1,0
+1.7.6,Other Intangible Assets (Dr),1,0
+1.7.7,Acquisition In Progress (Dr),1,0
+1.8.0,Intangible Assets Accumulated Amortization (Cr),0,1
+1.9.0,Goodwill (Dr),1,0
+2.1.0,Payables (Cr),0,1
+2.1.1,Trade Payables (Cr),0,1
+2.1.2,Dividends Payable (Cr),0,1
+2.1.3,Interest Payable (Cr),0,1
+2.1.4,Other Payables (Cr),0,1
+2.2.0,Accruals And Other Liabilities (Cr),0,1
+2.2.1,Accrued Expenses (Including Payroll) (Cr),0,1
+2.2.2,Deferred Income (Unearned Revenue) (Cr),0,1
+2.2.3,Accrued Taxes (Other Than Payroll) (Cr),0,1
+2.2.4,Other (Non-Financial) Liabilities (Cr),0,1
+2.3.0,Financial Liabilities (Cr),0,1
+2.3.1,Notes Payable (Cr),0,1
+2.3.2,Loans Payable (Cr),0,1
+2.3.3,Bonds (Debentures) (Cr),0,1
+2.3.4,Other Debts And Borrowings (Cr),0,1
+2.3.5,Lease Obligations (Cr),0,1
+2.3.6,Derivative Financial Liabilities (Cr),0,1
+2.3.7,Other Financial Liabilities (Cr),0,1
+2.4.0,Provisions (Contingencies) (Cr),0,1
+2.4.1,Customer Related Provisions (Cr),0,1
+2.4.2,Ligation And Regulatory Provisions (Cr),0,1
+2.4.3,Other Provisions (Cr),0,1
+3.1.0,Owners Equity (Attributable To Owners Of Parent) (Cr),0,1
+3.1.1,Equity At par (Issued Capital) (Cr),0,1
+3.1.2,Additional Paid-in Capital (Cr),0,1
+3.2.0,Retained Earnings (Dr / Cr),1,1
+3.2.1,Appropriated (Cr),0,1
+3.2.2,Unappropriated (Cr),0,1
+3.2.3,Deficit (Dr),1,0
+3.2.4,In Suspense Zero,0,0
+3.3.0,Accumulated OCI (Dr / Cr),1,1
+3.3.1,Exchange Differences On Translation (Dr / Cr),1,1
+3.3.2,Cash Flow Hedges (Dr / Cr),1,1
+3.3.3,Gains And Losses On Remeasuring Available-For-Sale Investments (Dr / Cr),1,1
+3.3.4,Remeasurements Of Defined Benefit Plans (Dr / Cr),1,1
+3.3.5,Revaluation Surplus (IFRS only) (Cr),0,1
+3.4.0,Other Equity Items (Dr / Cr),1,1
+3.4.1,ESOP Related Items (Dr / Cr),1,1
+3.4.2,Subscribed Stock Receivables (Dr),1,0
+3.4.3,Treasury Stock (Not Extinguished) (Dr),1,0
+3.4.4,Miscellaneous Equity (Cr),0,1
+3.5.0,Noncontrolling (Minority) Interest (Cr),0,1
+4.0.0,Revenue (Cr),0,1
+4.1.0,Recognized Point Of Time (Cr),0,1
+4.1.1,Goods (Cr),0,1
+4.1.2,Services Revenue (Cr),0,1
+4.2.0,Recognized Over Time (Cr),0,1
+4.2.1,Products (Cr),0,1
+4.3.0,Adjustments (Dr),1,0
+4.3.1,Variable Consideration (Dr),1,0
+4.3.2,Consideration Paid (Payable) To Customers (Dr),1,0
+4.3.3,Other Adjustments (Dr),1,0
+5.0.0,Expenses (Dr),1,0
+5.1.0,Expenses Classified By Nature (Dr),1,0
+5.1.1,"Merchandise, Material, Parts And Supplies (Dr)",1,0
+5.1.2,Employee Benefits (Dr),1,0
+5.1.3,Services Expenses (Dr),1,0
+5.1.4,"Rent, Depreciation, Amortization And Depletion (Dr)",1,0
+5.1.5,Increase In Inventories Of Finished Goods And Work In Progress Dr,1,0
+5.1.5,Decrease In Inventories Of Finished Goods And Work In Progress Cr,0,1
+5.1.6,Other Work Performed By Entity And Capitalized (Cr),0,1
+5.2.0,Expenses Classified By Function (Dr),1,0
+5.2.1,Cost Of Sales (Dr),1,0
+5.2.2,"Selling, General And Administrative (Dr)",1,0
+5.2.3,Credit Loss On Receivables (Dr),1,0
+5.2.3,Credit Loss Reversal On Receivables (Cr),0,1
+6.0.0,Other (Non-Operating) Expenses (Dr),1,0
+6.0.0,Other (Non-Operating) Income (Cr),0,1
+6.1.1,Other Revenue (Cr),0,1
+6.1.2,Other Expenses (Dr),1,0
+6.2.0,Gains (Cr),0,1
+6.2.0,Losses (Dr),1,0
+6.2.1,Foreign Currency Transaction Gain (Cr),0,1
+6.2.1,Foreign Currency Transaction Loss (Dr),1,0
+6.2.2,Gain On Investments (Cr),0,1
+6.2.2,Loss On Investments (Dr),1,0
+6.2.3,Gain On Derivatives (Cr),0,1
+6.2.3, Loss On Derivatives (Dr),1,0
+6.2.4,Gain On Disposal Of Assets (Cr),0,1
+6.2.4,Loss On Disposal Of Assets (Dr),1,0
+6.2.5,Debt Related Gain (Cr),0,1
+6.2.5,Debt Related Loss (Dr),1,0
+6.2.6,Impairment Loss (Dr),1,0
+6.2.7,Other Gains (Cr),0,1
+6.2.7,Other Losses (Dr),1,0
+6.3.0,Taxes (Other Than Income And Payroll) And Fees (Dr),1,0
+6.3.1,Real Estate Taxes And Insurance (Dr),1,0
+6.3.2,Highway (Road) Taxes And Tolls (Dr),1,0
+6.3.3,Direct Tax And License Fees (Dr),1,0
+6.3.4,Excise And Sales Taxes (Dr),1,0
+6.3.5,Customs Fees And Duties (Not Classified As Sales Or Excise) (Dr),1,0
+6.3.6,Non-Deductible VAT (GST) (Dr),1,0
+6.3.7,General Insurance Expense (Dr),1,0
+6.3.8,Administrative Fees (Revenue Stamps) (Dr),1,0
+6.3.9,Fines And Penalties (Dr),1,0
+6.3.1, Miscellaneous Taxes (Dr),1,0
+6.3.1, Other Taxes And Fees (Dr),1,0
+6.4.0,Income Tax Expense (Dr),1,0
+6.4.0,Income Tax Benefit (Cr),0,1
+7.0.0,Intercompany And Related Party Accounts (Dr / Cr),1,1
+7.1.0,Intercompany And Related Party Assets (Dr),1,0
+7.1.1,Intercompany Balances (Eliminated In Consolidation) (Dr),1,0
+7.1.2,Related Party Balances (Reported Or Disclosed) (Dr),1,0
+7.1.3,Intercompany Investments (Dr),1,0
+7.2.0,Intercompany And Related Party Liabilities (Cr),0,1
+7.2.1,Intercompany Balances (Eliminated In Consolidation) (Cr),0,1
+7.2.2,Related Party Balances (Reported Or Disclosed) (Cr),0,1
+7.3.0,Intercompany And Related Party Expense (Dr),1,0
+7.3.0,Intercompany And Related Party Income (Cr),0,1
+7.3.1,Intercompany And Related Party Income (Cr),0,1
+7.3.2,Intercompany And Related Party Expenses (Dr),1,0
+7.3.3,Income (Loss) From Equity Method Investments (Dr),1,0
